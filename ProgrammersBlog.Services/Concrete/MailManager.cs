@@ -27,8 +27,8 @@ namespace ProgrammersBlog.Services.Concrete
         {
             MailMessage message = new MailMessage
             {
-                From = new MailAddress(_smtpSettings.SenderEmail), //alpertunga004@outlook.com
-                To = { new MailAddress(emailSendDto.Email) }, //alper@altu.dev
+                From = new MailAddress(_smtpSettings.SenderEmail), //yusufokaraman@outlook.com
+                To = { new MailAddress(emailSendDto.Email) }, //yusufokaraman@gmail.com
                 Subject = emailSendDto.Subject, //Şifremi Unuttum // Siparişiniz Başarıyla Kargolandı.
                 IsBodyHtml = true,
                 Body = emailSendDto.Message // "12345" No'lu siparişiniz kargolanmıştır.
@@ -51,8 +51,8 @@ namespace ProgrammersBlog.Services.Concrete
         {
             MailMessage message = new MailMessage
             {
-                From = new MailAddress(_smtpSettings.SenderEmail), // Ahmet Yılmaz ahmetyilmaz@gmail.com // Blog Uygulamanıza Yeni Bir İçerik Önerisi
-                To = { new MailAddress("altudev02@gmail.com")}, //info@programmersblog.com
+                From = new MailAddress(_smtpSettings.SenderEmail), // Agah Öksüz agahoksuz@gmail.com // Blog Uygulamanıza Yeni Bir İçerik Önerisi
+                To = { new MailAddress("yusufokaraman@gmail.com")}, //info@intelligenttouristguide.com aslında bu adres olması gerekiyor
                 Subject = emailSendDto.Subject,
                 IsBodyHtml = true,
                 Body = $"Gönderen Kişi: {emailSendDto.Name}, Gönderen E-Posta Adresi:{emailSendDto.Email}<br/>{emailSendDto.Message}"

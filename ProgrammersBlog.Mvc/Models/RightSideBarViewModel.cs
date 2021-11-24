@@ -10,5 +10,6 @@ namespace ProgrammersBlog.Mvc.Models
     {
         public IList<Category> Categories { get; set; }
         public IList<Article> Articles { get; set; }
+        public IList<City> Cities { get; set; }
     }
 }

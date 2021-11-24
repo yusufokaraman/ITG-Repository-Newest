@@ -23,18 +23,21 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
         private readonly IPlaceService _placeService;
         private readonly UserManager<User> _userManager;
 
-        public HomeController(ICategoryService categoryService, IArticleService articleService, ICommentService commentService, ICityService _cityService, IPlaceService _placeService, UserManager<User> userManager)
+        public HomeController(ICategoryService categoryService, IArticleService articleService, ICommentService commentService, ICityService cityService, IPlaceService placeService, UserManager<User> userManager)
         {
             _categoryService = categoryService;
             _articleService = articleService;
             _commentService = commentService;
             _userManager = userManager;
+            _cityService = cityService;
+            _placeService = placeService;
             
         }
         [Authorize(Roles = "SuperAdmin,AdminArea.Home.Read")]
         public async Task<IActionResult> Index()
         {
             var categoriesCountResult = await _categoryService.CountByNonDeletedAsync();
+            var citiesCountResult = await _cityService.CountByNonDeletedAsync();
             var articlesCountResult = await _articleService.CountByNonDeletedAsync();
             var commentsCountResult = await _commentService.CountByNonDeletedAsync();
             var usersCount = await _userManager.Users.CountAsync();
@@ -44,6 +47,7 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
                 return View(new DashboardViewModel
                 {
                     CategoriesCount = categoriesCountResult.Data,
+                    CitiesCount=citiesCountResult.Data,
                     ArticlesCount = articlesCountResult.Data,
                     CommentsCount = commentsCountResult.Data,
                     UsersCount = usersCount,

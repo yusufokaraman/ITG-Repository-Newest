@@ -10,13 +10,16 @@ namespace ProgrammersBlog.Services.Abstract
 {
     public interface ICityService
     {
-        Task<IDataResult<CityDto>> Get(int cityId);
-        Task<IDataResult<CityListDto>> GetAll();
-        Task<IDataResult<CityListDto>> GetAllByNonDeleted();
-        Task<IDataResult<CityListDto>> GetAllByNonDeletedAndActive();
-        Task<IDataResult<CityDto>> Add(CityAddDto cityAddDto, string createdByName);
-        Task<IDataResult<CityDto>> Update(CityUpdateDto cityUpdateDto, string modifiedByName);
-        Task<IResult> Delete(int cityId, string modifiedByName);
-        Task<IResult> HardDelete(int cityId);
+        Task<IDataResult<CityDto>> GetAsync(int cityId);
+        Task<IDataResult<CityListDto>> GetAllAsync();
+        Task<IDataResult<CityUpdateDto>> GetCityUpdateDtoAsync(int cityId);
+        Task<IDataResult<CityListDto>> GetAllByNonDeletedAsync();
+        Task<IDataResult<CityListDto>> GetAllByNonDeletedAndActiveAsync();
+        Task<IDataResult<CityDto>> AddAsync(CityAddDto cityAddDto, string createdByName);
+        Task<IDataResult<CityDto>> UpdateAsync(CityUpdateDto cityUpdateDto, string modifiedByName);
+        Task<IResult> DeleteAsync(int cityId, string modifiedByName);
+        Task<IResult> HardDeleteAsync(int cityId);
+        Task<IDataResult<int>> CountAsync();
+        Task<IDataResult<int>> CountByNonDeletedAsync();
     }
 }

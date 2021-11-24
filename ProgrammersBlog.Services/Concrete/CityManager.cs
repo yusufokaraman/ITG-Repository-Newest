@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ProgrammersBlog.Data.Abstract;
+using ProgrammersBlog.Data.Concrete;
 using ProgrammersBlog.Entities.Concrete;
 using ProgrammersBlog.Entities.Dtos;
 using ProgrammersBlog.Services.Abstract;
@@ -39,7 +40,7 @@ namespace ProgrammersBlog.Services.Concrete
             _mapper = mapper;
         }
 
-        public async Task<IDataResult<CityDto>> Add(CityAddDto cityAddDto, string createdByName)
+        public async Task<IDataResult<CityDto>> AddAsync(CityAddDto cityAddDto, string createdByName)
         {
             var city = _mapper.Map<City>(cityAddDto);
             city.CreatedByName = createdByName;
@@ -59,7 +60,7 @@ namespace ProgrammersBlog.Services.Concrete
             });
         }
 
-        public async Task<IResult> Delete(int cityId, string modifiedByName)
+        public async Task<IResult> DeleteAsync(int cityId, string modifiedByName)
         {
             var city = await _unitOfWork.Cities.GetAsync(c => c.Id == cityId);
             if (city != null)
@@ -75,7 +76,7 @@ namespace ProgrammersBlog.Services.Concrete
             return new Result(ResultStatus.Error, "Böyle bir kategori bulunamadı.");
         }
 
-        public async Task<IDataResult<CityDto>> Get(int cityId)
+        public async Task<IDataResult<CityDto>> GetAsync(int cityId)
         {
             var city = await _unitOfWork.Cities.GetAsync(c => c.Id == cityId, c => c.Articles, c => c.Places, c => c.Categories);
             if (city != null)
@@ -99,7 +100,7 @@ namespace ProgrammersBlog.Services.Concrete
             });
         }
 
-        public async Task<IDataResult<CityListDto>> GetAll()
+        public async Task<IDataResult<CityListDto>> GetAllAsync()
         {
             var cities = await _unitOfWork.Cities.GetAllAsync(null, c => c.Articles, c => c.Places, c => c.Categories);
             if (cities.Count > -1)
@@ -121,7 +122,7 @@ namespace ProgrammersBlog.Services.Concrete
         }
 
 
-        public async Task<IDataResult<CityListDto>> GetAllByNonDeleted()
+        public async Task<IDataResult<CityListDto>> GetAllByNonDeletedAsync()
         {
             var cities = await _unitOfWork.Cities.GetAllAsync(c => !c.IsDeleted, c => c.Articles, c => c.Categories, c => c.Places);
             if (cities.Count > -1)
@@ -135,7 +136,7 @@ namespace ProgrammersBlog.Services.Concrete
             return new DataResult<CityListDto>(ResultStatus.Error, "Hiçbir Şehir bulunamadı.", null);
         }
 
-        public async Task<IDataResult<CityListDto>> GetAllByNonDeletedAndActive()
+        public async Task<IDataResult<CityListDto>> GetAllByNonDeletedAndActiveAsync()
         {
             var cities = await _unitOfWork.Cities.GetAllAsync(c => !c.IsDeleted && c.IsActive, c => c.Articles, c => c.Categories, c => c.Places);
             if (cities.Count > -1)
@@ -149,7 +150,7 @@ namespace ProgrammersBlog.Services.Concrete
             return new DataResult<CityListDto>(ResultStatus.Error, "Hiçbir Şehir bulunamadı.", null);
         }
 
-        public async Task<IResult> HardDelete(int cityId)
+        public async Task<IResult> HardDeleteAsync(int cityId)
         {
             var city = await _unitOfWork.Cities.GetAsync(c => c.Id == cityId);
             if (city != null)
@@ -162,7 +163,7 @@ namespace ProgrammersBlog.Services.Concrete
             return new Result(ResultStatus.Error, "Böyle bir şehir bulunamadı.");
         }
 
-        public async Task<IDataResult<CityDto>> Update(CityUpdateDto cityUpdateDto, string modifiedByName)
+        public async Task<IDataResult<CityDto>> UpdateAsync(CityUpdateDto cityUpdateDto, string modifiedByName)
         {
             var city = _mapper.Map<City>(cityUpdateDto);
             city.ModifiedByName = modifiedByName;
@@ -177,6 +178,37 @@ namespace ProgrammersBlog.Services.Concrete
 
 
             });
+        }
+
+        public async Task<IDataResult<int>> CountAsync()
+        {
+            var citiesCount = await _unitOfWork.Cities.CountAsync();
+            if (citiesCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, citiesCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, $"Beklenmeyen bir hata ile karşılaşıldı.", -1);
+            }
+        }
+
+        public async Task<IDataResult<int>> CountByNonDeletedAsync()
+        {
+            var citiesCount = await _unitOfWork.Cities.CountAsync(c => !c.IsDeleted);
+            if (citiesCount > -1)
+            {
+                return new DataResult<int>(ResultStatus.Success, citiesCount);
+            }
+            else
+            {
+                return new DataResult<int>(ResultStatus.Error, $"Beklenmeyen bir hata ile karşılaşıldı.", -1);
+            }
+        }
+
+        public Task<IDataResult<CityUpdateDto>> GetCityUpdateDtoAsync(int cityId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
