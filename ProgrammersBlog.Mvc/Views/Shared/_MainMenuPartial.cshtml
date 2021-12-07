@@ -4,30 +4,102 @@
 @{
     var websiteInfo = WebsiteInfo.Value;
 }
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" asp-controller="Home" asp-action="Index">@websiteInfo.MenuTitle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" asp-controller="Home" asp-action="Index">
-                        Anasayfa
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="About">Hakkımızda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Home" asp-action="Contact">İletişim</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">Yönetim Paneli</a>
-                </li>
-            </ul>
+<!-- <div class="page-inner"> -->
+<nav class="gtco-nav" role="navigation">
+    <div class="gtco-container">
+
+        <div class="row">
+            <div class="col-sm-4 col-xs-12">
+                <div id="gtco-logo"><a asp-controller="Home" asp-action="Index">@websiteInfo.MenuTitle <em>.</em></a></div>
+            </div>
+            <div class="col-xs-8 text-right menu-1">
+                <ul>
+                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+
+                    <li><a asp-controller="City" asp-action="Index">Şehirler</a></li>
+                    <li><a asp-controller="Home" asp-action="Contact">İletişim</a></li>
+                    <li>
+                        <a asp-area="Admin" asp-controller="Home" asp-action="Index">Giriş</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+
     </div>
 </nav>
+
+<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(../NewTemplate/images/img_bg.jpg)">
+    <div class="overlay"></div>
+    <div class="gtco-container">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-left">
+
+
+                <div class="row row-mt-15em">
+                    <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
+                        <h1>Türkiye'nin herhangi bir yerine seyahat mi planlıyorsunuz?</h1>
+                    </div>
+                    <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
+                        <div class="form-wrap">
+                            <div class="tab">
+
+                                <div class="tab-content">
+                                    <div class="tab-content-inner active" data-content="signup">
+                                        <h3>Yerinizi Ayırın</h3>
+                                        <form action="#">
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label for="fullname">Your Name</label>
+                                                    <input type="text" id="fullname" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label for="activities">Activities</label>
+                                                    <select name="#" id="activities" class="form-control">
+                                                        <option value="">Activities</option>
+                                                        <option value="">Hiking</option>
+                                                        <option value="">Caving</option>
+                                                        <option value="">Swimming</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label for="destination">Destination</label>
+                                                    <select name="#" id="destination" class="form-control">
+                                                        <option value="">Philippines</option>
+                                                        <option value="">USA</option>
+                                                        <option value="">Australia</option>
+                                                        <option value="">Singapore</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label for="date-start">Date Travel</label>
+                                                    <input type="text" id="date-start" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <input type="submit" class="btn btn-primary btn-block" value="Submit">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</header>

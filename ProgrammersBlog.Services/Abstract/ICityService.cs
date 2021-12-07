@@ -21,5 +21,6 @@ namespace ProgrammersBlog.Services.Abstract
         Task<IResult> HardDeleteAsync(int cityId);
         Task<IDataResult<int>> CountAsync();
         Task<IDataResult<int>> CountByNonDeletedAsync();
+        Task AddAsync(CityAddDto cityAddDto, object userName);
     }
 }

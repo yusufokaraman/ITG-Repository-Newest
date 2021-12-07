@@ -100,7 +100,7 @@ namespace ProgrammersBlog.Services.Concrete
             });
         }
 
-        public async Task<IDataResult<CityListDto>> GetAllAsync()
+        public async Task<IDataResult<CityListDto>> GetAllAsync(CityListDto cityListDto)
         {
             var cities = await _unitOfWork.Cities.GetAllAsync(null, c => c.Articles, c => c.Places, c => c.Categories);
             if (cities.Count > -1)
@@ -207,6 +207,16 @@ namespace ProgrammersBlog.Services.Concrete
         }
 
         public Task<IDataResult<CityUpdateDto>> GetCityUpdateDtoAsync(int cityId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IDataResult<CityListDto>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task AddAsync(CityAddDto cityAddDto, object userName)
         {
             throw new NotImplementedException();
         }

@@ -16,18 +16,20 @@ namespace ProgrammersBlog.Mvc.Controllers
     public class HomeController : Controller
     {
         private readonly IArticleService _articleService;
+        private readonly ICityService _cityService;
         private readonly AboutUsPageInfo _aboutUsPageInfo;
         private readonly IMailService _mailService;
         private readonly IToastNotification _toastNotification;
         private readonly IWritableOptions<AboutUsPageInfo> _aboutUsPageInfoWriter;
 
-        public HomeController(IArticleService articleService,IOptionsSnapshot<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification, IWritableOptions<AboutUsPageInfo> aboutUsPageInfoWriter)
+        public HomeController(IArticleService articleService, IOptionsSnapshot<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification, IWritableOptions<AboutUsPageInfo> aboutUsPageInfoWriter, ICityService cityService)
         {
             _articleService = articleService;
             _mailService = mailService;
             _toastNotification = toastNotification;
             _aboutUsPageInfoWriter = aboutUsPageInfoWriter;
             _aboutUsPageInfo = aboutUsPageInfo.Value;
+            _cityService = cityService;
         }
         [Route("index")]
         [Route("anasayfa")]
@@ -69,5 +71,15 @@ namespace ProgrammersBlog.Mvc.Controllers
             }
             return View(emailSendDto);
         }
+        //public IActionResult City(CityListDto cityListDto)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var result = _cityService.GetAllAsync(cityListDto);
+        //        return View();
+        //    }
+        //    return View(cityListDto);
+
+        
     }
 }
