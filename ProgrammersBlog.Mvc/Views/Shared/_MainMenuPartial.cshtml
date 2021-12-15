@@ -5,101 +5,118 @@
     var websiteInfo = WebsiteInfo.Value;
 }
 <!-- <div class="page-inner"> -->
-<nav class="gtco-nav" role="navigation">
-    <div class="gtco-container">
+<!DOCTYPE html>
+<html lang="tr" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@WebsiteInfo.Value</title>
+    
+    <link href="~/Menu/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
 
-        <div class="row">
-            <div class="col-sm-4 col-xs-12">
-                <div id="gtco-logo"><a asp-controller="Home" asp-action="Index">@websiteInfo.MenuTitle <em>.</em></a></div>
-            </div>
-            <div class="col-xs-8 text-right menu-1">
-                <ul>
-                    <li><a asp-controller="Home" asp-action="About">Hakkımızda</a></li>
+    <header>
+        <a asp-controller="Home" asp-action="Index" class="brand">@websiteInfo.MenuTitle <em>.</em></a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items">
 
-                    <li><a asp-controller="City" asp-action="Index">Şehirler</a></li>
-                    <li><a asp-controller="Home" asp-action="Contact">İletişim</a></li>
-                    <li>
-                        <a asp-area="Admin" asp-controller="Home" asp-action="Index">Giriş</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-    </div>
-</nav>
-
-<header id="gtco-header" class="gtco-cover gtco-cover-md" role="banner" style="background-image: url(../NewTemplate/images/img_bg.jpg)">
-    <div class="overlay"></div>
-    <div class="gtco-container">
-        <div class="row">
-            <div class="col-md-12 col-md-offset-0 text-left">
-
-
-                <div class="row row-mt-15em">
-                    <div class="col-md-7 mt-text animate-box" data-animate-effect="fadeInUp">
-                        <h1>Türkiye'nin herhangi bir yerine seyahat mi planlıyorsunuz?</h1>
-                    </div>
-                    <div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
-                        <div class="form-wrap">
-                            <div class="tab">
-
-                                <div class="tab-content">
-                                    <div class="tab-content-inner active" data-content="signup">
-                                        <h3>Yerinizi Ayırın</h3>
-                                        <form action="#">
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="fullname">Your Name</label>
-                                                    <input type="text" id="fullname" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="activities">Activities</label>
-                                                    <select name="#" id="activities" class="form-control">
-                                                        <option value="">Activities</option>
-                                                        <option value="">Hiking</option>
-                                                        <option value="">Caving</option>
-                                                        <option value="">Swimming</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="destination">Destination</label>
-                                                    <select name="#" id="destination" class="form-control">
-                                                        <option value="">Philippines</option>
-                                                        <option value="">USA</option>
-                                                        <option value="">Australia</option>
-                                                        <option value="">Singapore</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <label for="date-start">Date Travel</label>
-                                                    <input type="text" id="date-start" class="form-control">
-                                                </div>
-                                            </div>
-
-                                            <div class="row form-group">
-                                                <div class="col-md-12">
-                                                    <input type="submit" class="btn btn-primary btn-block" value="Submit">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+                <a asp-controller="City" asp-action="Index">Şehirler</a>
+                <a asp-controller="Place" asp-action="Index">Lokasyonlar</a>
+                <a asp-controller="Home" asp-action="About">Hakkımızda</a>
+                <a asp-controller="Home" asp-action="Contact">İletişim</a>
+                <a asp-area="Admin" asp-controller="Home" asp-action="Index">Giriş</a>
+               >
             </div>
         </div>
-    </div>
-</header>
+    </header>
+    <!--Videolar pexels.com'dan indirilmiştir.'-->
+    <section class="home">
+        <video class="video-slide active" src="~/Menu/videos/1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="~/Menu/videos/2.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="~/Menu/videos/3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="~/Menu/videos/4.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="~/Menu/videos/5.mp4" autoplay muted loop></video>
+        <div class="content active">
+            <h1>Binlerce<br><span>Adres</span></h1>
+            <p>Senin için binlerce adresi bir araya getirdik ve sana özel bir kullanıcı deneyimi sunuyoruz. </p>
+            <a href="#">Daha Fazlasını Gör</a>
+        </div>
+        <div class="content">
+            <h1>BİNLERCE<br><span>ADRES</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="content">
+            <h1>Enfes Yolculuk<br><span>Deneyimleri</span></h1>
+            <p>Kullanıcılar yaşadıkları yolculuk deneyimlerini makaleler ile paylaşarak yolculuk deneyimlerini çok daha üst seviyeye taşıyor. Sen de yazar olmak istersen bize iletişim formundan ulaşmayı unutma!</p>
+            <a asp-action="Home" asp-controller="Index">Daha Fazlasını Gör</a>
+        </div>
+        <div class="content">
+            <h1>Heyecan Dolu<br><span>Arkadaşlıklar</span></h1>
+            <p>Çok yakında sen de makalelerini ve yorumlarını okuduğun kişileri takip edebilecek yeni arkadaşlıklar kurabileceksin. Bizi takip etmeyi unutma!</p>
+            <a href="#">Daha Fazlasını Gör</a>
+        </div>
+        <div class="content">
+            <h1>HATIR!<br><span>ÇOK YAKINDA!</span></h1>
+            <p>Yolculuklarda arkadaş arıyorsan bu uygulama tam sana göre! HATIR ile paranın söz konusu olmadığı tek çıkarın sohbet olduğu bir yolculuğun tadını çıkarın. DETAYLAR YAKINDA!</p>
+            <a href="../Views/Home/ComingSoonIndex.cshtml">Daha Fazlasını Gör</a>
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        //Javacript for responsive navigation menu
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+
+        //Javacript for video slider navigation
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+
+        var sliderNav = function (manual) {
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            });
+
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+
+            contents.forEach((content) => {
+                content.classList.remove("active");
+            });
+
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                sliderNav(i);
+            });
+        });
+    </script>
+
+</body>
+</html>

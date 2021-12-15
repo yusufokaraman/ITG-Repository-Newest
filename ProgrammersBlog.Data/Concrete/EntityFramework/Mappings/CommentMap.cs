@@ -27,8 +27,7 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(c => c.IsActive).IsRequired();
             builder.Property(c => c.IsDeleted).IsRequired();
             builder.Property(c => c.Note).HasMaxLength(500);
-            builder.HasOne<Place>(c => c.Place).WithMany(a => a.Comments).HasForeignKey(c => c.PlaceId).OnDelete(DeleteBehavior.NoAction); ;
-            builder.HasOne<City>(c => c.City).WithMany(a => a.Comments).HasForeignKey(c => c.CityId).OnDelete(DeleteBehavior.NoAction); ;
+            builder.HasOne<Place>(c => c.Place).WithMany(a => a.Comments).HasForeignKey(c => c.PlaceId).OnDelete(DeleteBehavior.NoAction); 
             builder.ToTable("Comments");
 
             //builder.HasData(

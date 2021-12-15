@@ -87,7 +87,7 @@ namespace ProgrammersBlog.Services.Concrete
             }
         }
 
-        public async Task<IDataResult<ArticleListDto>> GetAllAsyncV2(int? categoryId, int? cityId,int? placeId, int? userId, bool? isActive, bool? isDeleted, int currentPage, int pageSize,
+        public async Task<IDataResult<ArticleListDto>> GetAllAsyncV2(int? categoryId,  int? userId, bool? isActive, bool? isDeleted, int currentPage, int pageSize,
             OrderByGeneral orderBy, bool isAscending, bool includeCategory, bool includeComments, bool includeUser)
         {
             List<Expression<Func<Article, bool>>> predicates = new List<Expression<Func<Article, bool>>>();
@@ -176,42 +176,7 @@ namespace ProgrammersBlog.Services.Concrete
             }
             return new DataResult<ArticleListDto>(ResultStatus.Error, Messages.Article.NotFound(isPlural: true), null);
         }
-        public async Task<IDataResult<ArticleListDto>> GetAllByCity(int cityId)
-        {
-            var result = await UnitOfWork.Cities.AnyAsync(c => c.Id == cityId);
-            if (result)
-            {
-                var articles = await UnitOfWork.Articles.GetAllAsync(a => a.CityId == cityId && !a.IsDeleted && a.IsActive, ar => ar.User, ar => ar.City);
-                if (articles.Count > -1)
-                {
-                    return new DataResult<ArticleListDto>(ResultStatus.Success, new ArticleListDto
-                    {
-                        Articles = articles,
-                        ResultStatus = ResultStatus.Success
-                    });
-                }
-                return new DataResult<ArticleListDto>(ResultStatus.Error, "Makaleler bulunamadı.", null);
-            }
-            return new DataResult<ArticleListDto>(ResultStatus.Error, "Aradığınız şehir bulunamadı.", null);
-        }
-        public async Task<IDataResult<ArticleListDto>> GetAllByPlace(int placeId)
-        {
-            var result = await UnitOfWork.Places.AnyAsync(c => c.Id == placeId);
-            if (result)
-            {
-                var articles = await UnitOfWork.Articles.GetAllAsync(a => a.PlaceId == placeId && !a.IsDeleted && a.IsActive, ar => ar.User, ar => ar.Place);
-                if (articles.Count > -1)
-                {
-                    return new DataResult<ArticleListDto>(ResultStatus.Success, new ArticleListDto
-                    {
-                        Articles = articles,
-                        ResultStatus = ResultStatus.Success
-                    });
-                }
-                return new DataResult<ArticleListDto>(ResultStatus.Error, "Makaleler bulunamadı.", null);
-            }
-            return new DataResult<ArticleListDto>(ResultStatus.Error, "Aradığınız mekan bulunamadı.", null);
-        }
+
         public async Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAsync()
         {
             var articles = await UnitOfWork.Articles.GetAllAsync(a => !a.IsDeleted, ar => ar.User, ar => ar.Category);

@@ -78,7 +78,7 @@ namespace ProgrammersBlog.Services.Concrete
 
         public async Task<IDataResult<CityDto>> GetAsync(int cityId)
         {
-            var city = await _unitOfWork.Cities.GetAsync(c => c.Id == cityId, c => c.Articles, c => c.Places, c => c.Categories);
+            var city = await _unitOfWork.Cities.GetAsync(c => c.Id == cityId);
             if (city != null)
             {
                 return new DataResult<CityDto>(ResultStatus.Success, new CityDto
@@ -102,7 +102,7 @@ namespace ProgrammersBlog.Services.Concrete
 
         public async Task<IDataResult<CityListDto>> GetAllAsync(CityListDto cityListDto)
         {
-            var cities = await _unitOfWork.Cities.GetAllAsync(null, c => c.Articles, c => c.Places, c => c.Categories);
+            var cities = await _unitOfWork.Cities.GetAllAsync(null);
             if (cities.Count > -1)
             {
                 return new DataResult<CityListDto>(ResultStatus.Success, new CityListDto
@@ -124,7 +124,7 @@ namespace ProgrammersBlog.Services.Concrete
 
         public async Task<IDataResult<CityListDto>> GetAllByNonDeletedAsync()
         {
-            var cities = await _unitOfWork.Cities.GetAllAsync(c => !c.IsDeleted, c => c.Articles, c => c.Categories, c => c.Places);
+            var cities = await _unitOfWork.Cities.GetAllAsync(c => !c.IsDeleted);
             if (cities.Count > -1)
             {
                 return new DataResult<CityListDto>(ResultStatus.Success, new CityListDto
@@ -138,7 +138,7 @@ namespace ProgrammersBlog.Services.Concrete
 
         public async Task<IDataResult<CityListDto>> GetAllByNonDeletedAndActiveAsync()
         {
-            var cities = await _unitOfWork.Cities.GetAllAsync(c => !c.IsDeleted && c.IsActive, c => c.Articles, c => c.Categories, c => c.Places);
+            var cities = await _unitOfWork.Cities.GetAllAsync(c => !c.IsDeleted && c.IsActive);
             if (cities.Count > -1)
             {
                 return new DataResult<CityListDto>(ResultStatus.Success, new CityListDto

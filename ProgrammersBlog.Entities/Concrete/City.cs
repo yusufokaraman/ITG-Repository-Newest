@@ -12,9 +12,9 @@ namespace ProgrammersBlog.Entities.Concrete
         public string Name { get; set; }
         public string Content { get; set; }
         public string Thumbnail { get; set; }
-        public ICollection<Article> Articles { get; set; }
-        public ICollection<Category> Categories { get; set; }
-        public ICollection<Place> Places { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        
+        
+        
+        
     }
 }

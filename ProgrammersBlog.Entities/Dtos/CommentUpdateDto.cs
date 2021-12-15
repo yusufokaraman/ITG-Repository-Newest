@@ -22,5 +22,6 @@ namespace ProgrammersBlog.Entities.Dtos
         public bool IsActive { get; set; }
         [Required(ErrorMessage = "{0} boş geçilmemelidir.")]
         public int ArticleId { get; set; }
+        public int PlaceId { get; set; }
     }
 }

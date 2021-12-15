@@ -12,6 +12,7 @@ namespace ProgrammersBlog.Entities.Concrete
     {
         public string Picture { get; set; }
         public ICollection<Article> Articles { get; set; }
+        public ICollection<Place> Places { get; set; }
         public string About { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

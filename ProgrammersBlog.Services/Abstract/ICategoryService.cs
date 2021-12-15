@@ -22,7 +22,7 @@ namespace ProgrammersBlog.Services.Abstract
         Task<IDataResult<CategoryListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<CategoryListDto>> GetAllByNonDeletedAndActiveAsync();
         Task<IDataResult<CategoryListDto>> GetAllByDeletedAsync();
-        Task<IDataResult<CategoryListDto>> GetAllByCity(int cityId);
+        //Task<IDataResult<CategoryListDto>> GetAllByCity(int cityId);
         /// <summary>
         /// Verilen CategoryAddDto ve CreatedByName parametrelerine ait bilgiler ile yeni bir Category ekler.
         /// </summary>

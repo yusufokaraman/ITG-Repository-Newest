@@ -11,5 +11,6 @@ namespace ProgrammersBlog.Entities.Dtos
     public class PlaceListDto:DtoGetBase
     {
         public IList<Place> Places { get; set; }
+        public int? CategoryId { get; set; }
     }
 }

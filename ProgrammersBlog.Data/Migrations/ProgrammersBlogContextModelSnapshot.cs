@@ -29,9 +29,6 @@ namespace ProgrammersBlog.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CommentCount")
                         .HasColumnType("int");
 
@@ -68,9 +65,6 @@ namespace ProgrammersBlog.Data.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<int>("PlaceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SeoAuthor")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -106,10 +100,6 @@ namespace ProgrammersBlog.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("CityId");
-
-                    b.HasIndex("PlaceId");
-
                     b.HasIndex("UserId");
 
                     b.ToTable("Articles");
@@ -119,18 +109,16 @@ namespace ProgrammersBlog.Data.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CityId = 1,
                             CommentCount = 1,
                             Content = "Lorem Ipsum, dizgi ve baskı endüstrisinde kullanılan mıgır metinlerdir. Lorem Ipsum, adı bilinmeyen bir matbaacının bir hurufat numune kitabı oluşturmak üzere bir yazı galerisini alarak karıştırdığı 1500'lerden beri endüstri standardı sahte metinler olarak kullanılmıştır. Beşyüz yıl boyunca varlığını sürdürmekle kalmamış, aynı zamanda pek değişmeden elektronik dizgiye de sıçramıştır. 1960'larda Lorem Ipsum pasajları da içeren Letraset yapraklarının yayınlanması ile ve yakın zamanda Aldus PageMaker gibi Lorem Ipsum sürümleri içeren masaüstü yayıncılık yazılımları ile popüler olmuştur.",
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(382),
-                            Date = new DateTime(2021, 11, 23, 3, 8, 25, 388, DateTimeKind.Local).AddTicks(9415),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 931, DateTimeKind.Local).AddTicks(9495),
+                            Date = new DateTime(2021, 12, 15, 6, 26, 51, 931, DateTimeKind.Local).AddTicks(8337),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(834),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 932, DateTimeKind.Local).AddTicks(160),
                             Note = "Adana Yemek Kültürü Tanıtımı",
-                            PlaceId = 1,
                             SeoAuthor = "Yusuf Karaman",
                             SeoDescription = "Adana Yemek Kültürü",
                             SeoTags = "Adana, Kebap, Yemek",
@@ -143,18 +131,16 @@ namespace ProgrammersBlog.Data.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            CityId = 2,
                             CommentCount = 1,
                             Content = "Lorem Ipsum pasajlarının birçok çeşitlemesi vardır. Ancak bunların büyük bir çoğunluğu mizah katılarak veya rastgele sözcükler eklenerek değiştirilmişlerdir. Eğer bir Lorem Ipsum pasajı kullanacaksanız, metin aralarına utandırıcı sözcükler gizlenmediğinden emin olmanız gerekir. İnternet'teki tüm Lorem Ipsum üreteçleri önceden belirlenmiş metin bloklarını yineler. Bu da, bu üreteci İnternet üzerindeki gerçek Lorem Ipsum üreteci yapar. Bu üreteç, 200'den fazla Latince sözcük ve onlara ait cümle yapılarını içeren bir sözlük kullanır. Bu nedenle, üretilen Lorem Ipsum metinleri yinelemelerden, mizahtan ve karakteristik olmayan sözcüklerden uzaktır.",
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(1852),
-                            Date = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(1850),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 932, DateTimeKind.Local).AddTicks(1212),
+                            Date = new DateTime(2021, 12, 15, 6, 26, 51, 932, DateTimeKind.Local).AddTicks(1210),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(1853),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 932, DateTimeKind.Local).AddTicks(1213),
                             Note = "Adıyaman Yemek Kültürü Tanıtımı",
-                            PlaceId = 2,
                             SeoAuthor = "Yusuf Karaman",
                             SeoDescription = "Adıyaman Yemek Kültürü",
                             SeoTags = "Adıyaman, Kebap, Yemek",
@@ -167,18 +153,16 @@ namespace ProgrammersBlog.Data.Migrations
                         {
                             Id = 3,
                             CategoryId = 2,
-                            CityId = 1,
                             CommentCount = 1,
                             Content = "Lorem Ipsum pasajlarının birçok çeşitlemesi vardır. Ancak bunların büyük bir çoğunluğu mizah katılarak veya rastgele sözcükler eklenerek değiştirilmişlerdir. Eğer bir Lorem Ipsum pasajı kullanacaksanız, metin aralarına utandırıcı sözcükler gizlenmediğinden emin olmanız gerekir. İnternet'teki tüm Lorem Ipsum üreteçleri önceden belirlenmiş metin bloklarını yineler. Bu da, bu üreteci İnternet üzerindeki gerçek Lorem Ipsum üreteci yapar. Bu üreteç, 200'den fazla Latince sözcük ve onlara ait cümle yapılarını içeren bir sözlük kullanır. Bu nedenle, üretilen Lorem Ipsum metinleri yinelemelerden, mizahtan ve karakteristik olmayan sözcüklerden uzaktır.",
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(1859),
-                            Date = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(1858),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 932, DateTimeKind.Local).AddTicks(1219),
+                            Date = new DateTime(2021, 12, 15, 6, 26, 51, 932, DateTimeKind.Local).AddTicks(1217),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 389, DateTimeKind.Local).AddTicks(1860),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 932, DateTimeKind.Local).AddTicks(1220),
                             Note = "Adana Tarihi Mekanlar Tanıtımı",
-                            PlaceId = 3,
                             SeoAuthor = "Yusuf Karaman",
                             SeoDescription = "Adana Tarihi Yerler",
                             SeoTags = "Adana, Kültür,Tarih,Vanda,Kebap",
@@ -195,9 +179,6 @@ namespace ProgrammersBlog.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
-
-                    b.Property<int>("CityId")
-                        .HasColumnType("int");
 
                     b.Property<string>("CreatedByName")
                         .IsRequired()
@@ -236,51 +217,46 @@ namespace ProgrammersBlog.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CityId");
-
                     b.ToTable("Categories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CityId = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 391, DateTimeKind.Local).AddTicks(8108),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 934, DateTimeKind.Local).AddTicks(4647),
                             Description = "Yemek yenilebilecek yerler ile ilgili oluşturulmuş kategoridir.",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 391, DateTimeKind.Local).AddTicks(8118),
-                            Name = "Yemek",
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 934, DateTimeKind.Local).AddTicks(4656),
+                            Name = " Adana Yemek",
                             Note = "Yemek Turist Rehberi Kategorisi"
                         },
                         new
                         {
                             Id = 2,
-                            CityId = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 391, DateTimeKind.Local).AddTicks(8128),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 934, DateTimeKind.Local).AddTicks(4667),
                             Description = "Müze ve tarihsel yerler için oluşturulmuş kategoridir.",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 391, DateTimeKind.Local).AddTicks(8129),
-                            Name = "Tarihi Gezi",
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 934, DateTimeKind.Local).AddTicks(4668),
+                            Name = "Adana Tarihi Gezi",
                             Note = "Tarihi Gezi Turist Rehberi Kategorisi"
                         },
                         new
                         {
                             Id = 3,
-                            CityId = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 391, DateTimeKind.Local).AddTicks(8133),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 934, DateTimeKind.Local).AddTicks(4672),
                             Description = "Doğal Parklar için oluşturulmuş kategoridir.",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 391, DateTimeKind.Local).AddTicks(8134),
-                            Name = "Doğa Gezisi",
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 934, DateTimeKind.Local).AddTicks(4673),
+                            Name = "Adana Doğa Gezisi",
                             Note = "Doğal Parklar Turist Rehberi Kategorisi"
                         });
                 });
@@ -342,11 +318,11 @@ namespace ProgrammersBlog.Data.Migrations
                             Id = 1,
                             Content = "Adana, Türkiye'nin bir ili ve en kalabalık altıncı şehridir. 2019 yılı verilerine göre 2.258.718 nüfusa sahiptir. İlin yüz ölçümü 13.844 km²dir. İlde km²ye 160 kişi düşmektedir. 01.02.2018 TÜİK verilerine göre 5'i merkez ilçe olmak üzere toplam 15 ilçesi ve belediyesi vardır. Bu ilçelerde 831 mahalle bulunmaktadır.",
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 395, DateTimeKind.Local).AddTicks(5240),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 938, DateTimeKind.Local).AddTicks(4742),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 395, DateTimeKind.Local).AddTicks(5250),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 938, DateTimeKind.Local).AddTicks(4750),
                             Name = "Adana",
                             Note = "01 Plakalı il Adana.",
                             Thumbnail = "Default.jpg"
@@ -356,11 +332,11 @@ namespace ProgrammersBlog.Data.Migrations
                             Id = 2,
                             Content = "Adıyaman, aynı isimli ilin merkez ilçesidir. Adıyaman merkez ilçesinin nüfusu 2020 istatistiklerine 310.644'dür. ",
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 395, DateTimeKind.Local).AddTicks(5261),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 938, DateTimeKind.Local).AddTicks(4761),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 395, DateTimeKind.Local).AddTicks(5262),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 938, DateTimeKind.Local).AddTicks(4763),
                             Name = "Adıyaman",
                             Note = "02 Plakalı il Adıyaman.",
                             Thumbnail = "Default.jpg"
@@ -370,11 +346,11 @@ namespace ProgrammersBlog.Data.Migrations
                             Id = 3,
                             Content = "Afyonkarahisar veya eski ve halk arasındaki ismiyle Afyon, aynı isimli ilin merkezidir. Mermercilik ve gıda sektöründe Türkiye içinde ve dışında isim yapmıştır. Şehrin Afyon olan ismi, 2005 yılında Afyonkarahisar olarak değiştirilmiştir. ",
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 395, DateTimeKind.Local).AddTicks(5266),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 938, DateTimeKind.Local).AddTicks(4766),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 395, DateTimeKind.Local).AddTicks(5267),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 938, DateTimeKind.Local).AddTicks(4767),
                             Name = "Afyon",
                             Note = "03 Plakalı il Afyon.",
                             Thumbnail = "Default.jpg"
@@ -389,9 +365,6 @@ namespace ProgrammersBlog.Data.Migrations
                         .UseIdentityColumn();
 
                     b.Property<int>("ArticleId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CityId")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedByName")
@@ -431,8 +404,6 @@ namespace ProgrammersBlog.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ArticleId");
-
-                    b.HasIndex("CityId");
 
                     b.HasIndex("PlaceId");
 
@@ -493,7 +464,7 @@ namespace ProgrammersBlog.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CityId")
+                    b.Property<int>("CommentCount")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedByName")
@@ -502,6 +473,9 @@ namespace ProgrammersBlog.Data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
@@ -532,11 +506,32 @@ namespace ProgrammersBlog.Data.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<string>("SeoAuthor")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SeoDescription")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("SeoTags")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ViewCount")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("CityId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Places");
 
@@ -546,48 +541,66 @@ namespace ProgrammersBlog.Data.Migrations
                             Id = 1,
                             Address = "Adana Merkez,Adana Kebapçısı",
                             CategoryId = 1,
-                            CityId = 1,
+                            CommentCount = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 398, DateTimeKind.Local).AddTicks(109),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(617),
+                            Date = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(343),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 398, DateTimeKind.Local).AddTicks(121),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(627),
                             Name = "Adana Kebapçısı",
                             Note = "Adana'da yer alan kebapçı",
-                            PlacePicture = "Default.jpg"
+                            PlacePicture = "Default.jpg",
+                            SeoAuthor = "Yusuf Karaman",
+                            SeoDescription = "Adana Yemek Kültürü",
+                            SeoTags = "Adana, Kebap, Yemek",
+                            UserId = 1,
+                            ViewCount = 100
                         },
                         new
                         {
                             Id = 2,
                             Address = "Adıyaman Ev Yemekler, Merkez-Adıyaman",
                             CategoryId = 1,
-                            CityId = 2,
+                            CommentCount = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 398, DateTimeKind.Local).AddTicks(561),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(1446),
+                            Date = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(1444),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 398, DateTimeKind.Local).AddTicks(562),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(1447),
                             Name = "Adıyaman Ev Yemekleri",
                             Note = "Adıyaman'da faaliyer gösteren ev yemekleri restoranı.",
-                            PlacePicture = "Default.jpg"
+                            PlacePicture = "Default.jpg",
+                            SeoAuthor = "Yusuf Karaman",
+                            SeoDescription = "Adıyaman Yemek Kültürü",
+                            SeoTags = "Adıyaman, Kebap, Yemek",
+                            UserId = 1,
+                            ViewCount = 100
                         },
                         new
                         {
                             Id = 3,
                             Address = "Adana Varda Köprüsü,Merkez Adana",
                             CategoryId = 2,
-                            CityId = 3,
+                            CommentCount = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2021, 11, 23, 3, 8, 25, 398, DateTimeKind.Local).AddTicks(566),
+                            CreatedDate = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(1452),
+                            Date = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(1451),
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2021, 11, 23, 3, 8, 25, 398, DateTimeKind.Local).AddTicks(567),
+                            ModifiedDate = new DateTime(2021, 12, 15, 6, 26, 51, 942, DateTimeKind.Local).AddTicks(1453),
                             Name = "Adana Varda Köprüsü",
                             Note = "Adana'da bulunan tarihi Varda Köprüsü.",
-                            PlacePicture = "Default.jpg"
+                            PlacePicture = "Default.jpg",
+                            SeoAuthor = "Yusuf Karaman",
+                            SeoDescription = "Adana Tarihi Yerler",
+                            SeoTags = "Adana, Kültür,Tarih,Vanda,Kebap",
+                            UserId = 1,
+                            ViewCount = 100
                         });
                 });
 
@@ -623,154 +636,154 @@ namespace ProgrammersBlog.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "73efa874-5d6f-47d0-804e-dfb25045cf97",
+                            ConcurrencyStamp = "10a08879-a1e3-45c4-ad90-2dcee19d7f5c",
                             Name = "Category.Create",
                             NormalizedName = "CATEGORY.CREATE"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "e7c48cc6-c495-4331-853a-9ed4db541886",
+                            ConcurrencyStamp = "e6d5b77d-aa31-4d6e-b5e3-127d5d8a2cab",
                             Name = "Category.Read",
                             NormalizedName = "CATEGORY.READ"
                         },
                         new
                         {
                             Id = 3,
-                            ConcurrencyStamp = "3cf9e938-b50c-4e63-be29-0508c179acb9",
+                            ConcurrencyStamp = "d8d23d4e-0146-4365-b5dc-13492fdf0428",
                             Name = "Category.Update",
                             NormalizedName = "CATEGORY.UPDATE"
                         },
                         new
                         {
                             Id = 4,
-                            ConcurrencyStamp = "546f47dc-17ba-48f0-866f-1a5c98ae7a55",
+                            ConcurrencyStamp = "c8881f37-0bb5-4b3e-8ec6-b7a4fd11ec2c",
                             Name = "Category.Delete",
                             NormalizedName = "CATEGORY.DELETE"
                         },
                         new
                         {
                             Id = 5,
-                            ConcurrencyStamp = "ead1e2bb-43bd-4564-a480-0f6438e5194e",
+                            ConcurrencyStamp = "8d5eb90c-7ec5-4ddb-b82b-25000b4ba4b6",
                             Name = "Article.Create",
                             NormalizedName = "ARTICLE.CREATE"
                         },
                         new
                         {
                             Id = 6,
-                            ConcurrencyStamp = "11e3157f-6c07-4287-9bed-bcac23f6f4c8",
+                            ConcurrencyStamp = "abd08e71-139c-4336-ad46-c0d0d159fb60",
                             Name = "Article.Read",
                             NormalizedName = "ARTICLE.READ"
                         },
                         new
                         {
                             Id = 7,
-                            ConcurrencyStamp = "48d4bc51-86f0-494d-9d65-7705fce933ab",
+                            ConcurrencyStamp = "32048c12-4890-4fb5-ab5d-2e1fa953a561",
                             Name = "Article.Update",
                             NormalizedName = "ARTICLE.UPDATE"
                         },
                         new
                         {
                             Id = 8,
-                            ConcurrencyStamp = "a0d46770-2e93-47e9-9055-7f2b3aab0fe1",
+                            ConcurrencyStamp = "99652bad-d04e-4767-9a4b-2d79eeff09bd",
                             Name = "Article.Delete",
                             NormalizedName = "ARTICLE.DELETE"
                         },
                         new
                         {
                             Id = 9,
-                            ConcurrencyStamp = "3458d9f9-f1cc-448d-a8be-6f7563493f34",
+                            ConcurrencyStamp = "8a6c5fff-bb99-48a8-ba0f-a26bc218e089",
                             Name = "User.Create",
                             NormalizedName = "USER.CREATE"
                         },
                         new
                         {
                             Id = 10,
-                            ConcurrencyStamp = "543e6841-ccbe-46af-a2a5-6310cfc286d4",
+                            ConcurrencyStamp = "52de000d-bb89-4688-bbb2-d2063ba9935d",
                             Name = "User.Read",
                             NormalizedName = "USER.READ"
                         },
                         new
                         {
                             Id = 11,
-                            ConcurrencyStamp = "16394012-3d04-4ddb-a58c-325a7174e6c8",
+                            ConcurrencyStamp = "47184b6d-3dff-4463-98c0-7cf65d10fe58",
                             Name = "User.Update",
                             NormalizedName = "USER.UPDATE"
                         },
                         new
                         {
                             Id = 12,
-                            ConcurrencyStamp = "de7191f5-a5bf-4ec0-8eb8-e5deb187d86b",
+                            ConcurrencyStamp = "f302d9fa-da38-41ca-8299-b6c6beab2942",
                             Name = "User.Delete",
                             NormalizedName = "USER.DELETE"
                         },
                         new
                         {
                             Id = 13,
-                            ConcurrencyStamp = "3bedfdf2-f84b-401f-abb7-91c3882e047a",
+                            ConcurrencyStamp = "7cc9c027-ef07-40cc-8092-f18b8613a473",
                             Name = "Role.Create",
                             NormalizedName = "ROLE.CREATE"
                         },
                         new
                         {
                             Id = 14,
-                            ConcurrencyStamp = "6e996584-e767-4461-a9a3-61b02432c16c",
+                            ConcurrencyStamp = "f90c67dd-275a-45d7-973a-777f49a97aa3",
                             Name = "Role.Read",
                             NormalizedName = "ROLE.READ"
                         },
                         new
                         {
                             Id = 15,
-                            ConcurrencyStamp = "b921fb10-6ea6-4147-a3b2-9e56bdb6877a",
+                            ConcurrencyStamp = "3bcb5d10-bc63-4c64-8953-0d203743e90c",
                             Name = "Role.Update",
                             NormalizedName = "ROLE.UPDATE"
                         },
                         new
                         {
                             Id = 16,
-                            ConcurrencyStamp = "2ecb32af-9c39-42ce-8a79-5e99a9106ba2",
+                            ConcurrencyStamp = "7cfc0389-e9dc-46bc-b7af-3bdcf1ddd1c8",
                             Name = "Role.Delete",
                             NormalizedName = "ROLE.DELETE"
                         },
                         new
                         {
                             Id = 17,
-                            ConcurrencyStamp = "1d2d565f-16b1-4909-b44d-b99342646e78",
+                            ConcurrencyStamp = "13219cb4-510b-4a4b-b147-f447a2361a50",
                             Name = "Comment.Create",
                             NormalizedName = "COMMENT.CREATE"
                         },
                         new
                         {
                             Id = 18,
-                            ConcurrencyStamp = "219e9ad9-1370-4e4a-9aea-dd8004a15533",
+                            ConcurrencyStamp = "e0c77d2d-1e89-4d96-bc95-2830b82043fe",
                             Name = "Comment.Read",
                             NormalizedName = "COMMENT.READ"
                         },
                         new
                         {
                             Id = 19,
-                            ConcurrencyStamp = "c8c295f8-8753-48e7-9cf0-2c0fdfecab28",
+                            ConcurrencyStamp = "d52b678e-fd5a-4b10-a530-76f1cd427381",
                             Name = "Comment.Update",
                             NormalizedName = "COMMENT.UPDATE"
                         },
                         new
                         {
                             Id = 20,
-                            ConcurrencyStamp = "5f0e2440-e8c8-4874-b92c-626d2b5f481c",
+                            ConcurrencyStamp = "cf6fa81a-b725-4adc-bce5-513aeb4889a7",
                             Name = "Comment.Delete",
                             NormalizedName = "COMMENT.DELETE"
                         },
                         new
                         {
                             Id = 21,
-                            ConcurrencyStamp = "310007b8-a43a-4f46-8819-16f209c09968",
+                            ConcurrencyStamp = "0a223ff6-24d1-41f8-aaf5-cbe9eecc6469",
                             Name = "AdminArea.Home.Read",
                             NormalizedName = "ADMINAREA.HOME.READ"
                         },
                         new
                         {
                             Id = 22,
-                            ConcurrencyStamp = "6659a57b-de00-4c51-b23a-2d5090c04286",
+                            ConcurrencyStamp = "c72d7b3a-6eb4-42a1-8114-7cbd1e0e812f",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         });
@@ -916,7 +929,7 @@ namespace ProgrammersBlog.Data.Migrations
                             Id = 1,
                             About = "Admin User of ProgrammersBlog",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a081d729-399c-434e-868e-7f7ed1b5dcab",
+                            ConcurrencyStamp = "155bf72a-24ba-485a-84e3-cab05af4c1a8",
                             Email = "adminuser@gmail.com",
                             EmailConfirmed = true,
                             FacebookLink = "https://facebook.com/adminuser",
@@ -928,11 +941,11 @@ namespace ProgrammersBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMINUSER@GMAIL.COM",
                             NormalizedUserName = "ADMINUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHdkgeT3hb95liRYVhrTf5Agm5kEcsISaR3CywEfp3Wh0e5xL65dcUxgjwCnbsnkxA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDFyoAU83CXQWuppr0qSKzq85Q79MrdmKFv+HqHZ+SwDqoGxGw7OHEVoCNIA6Ghv+Q==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "c407dcc3-1964-4704-8a0f-82cf6cfae364",
+                            SecurityStamp = "c8553b82-5727-424e-b632-130cb983e5af",
                             TwitterLink = "https://twitter.com/adminuser",
                             TwoFactorEnabled = false,
                             UserName = "adminuser",
@@ -942,9 +955,9 @@ namespace ProgrammersBlog.Data.Migrations
                         new
                         {
                             Id = 2,
-                            About = "Editor User of ProgrammersBlog",
+                            About = "Editor User of ITG",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "437a7174-b640-49c1-886d-f84dfb49c8b9",
+                            ConcurrencyStamp = "eb291242-3866-44a3-ba3d-07cc19c9d5e5",
                             Email = "editoruser@gmail.com",
                             EmailConfirmed = true,
                             FacebookLink = "https://facebook.com/editoruser",
@@ -956,11 +969,11 @@ namespace ProgrammersBlog.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITORUSER@GMAIL.COM",
                             NormalizedUserName = "EDITORUSER",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOxRw2LjNcF0MOX3Pg9QVsiUIXF8A7dYmAjZ76Jd8/fpUXI7aIWjVIlPrWv+8khJKQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGPo2awSk2O5Kjt98HsCHGJXKvr16Z3quiR7HF7vV5HDup4rTVo6xXErXymX6MVe/w==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "/userImages/defaultUser.png",
-                            SecurityStamp = "944e8515-2719-4ae2-85dc-eac9b697a73d",
+                            SecurityStamp = "cbb893a0-6488-40c0-9eae-31505dfc88d0",
                             TwitterLink = "https://twitter.com/editoruser",
                             TwoFactorEnabled = false,
                             UserName = "editoruser",
@@ -1236,18 +1249,6 @@ namespace ProgrammersBlog.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProgrammersBlog.Entities.Concrete.City", "City")
-                        .WithMany("Articles")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("ProgrammersBlog.Entities.Concrete.Place", "Place")
-                        .WithMany("Articles")
-                        .HasForeignKey("PlaceId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("ProgrammersBlog.Entities.Concrete.User", "User")
                         .WithMany("Articles")
                         .HasForeignKey("UserId")
@@ -1256,22 +1257,7 @@ namespace ProgrammersBlog.Data.Migrations
 
                     b.Navigation("Category");
 
-                    b.Navigation("City");
-
-                    b.Navigation("Place");
-
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ProgrammersBlog.Entities.Concrete.Category", b =>
-                {
-                    b.HasOne("ProgrammersBlog.Entities.Concrete.City", "City")
-                        .WithMany("Categories")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("City");
                 });
 
             modelBuilder.Entity("ProgrammersBlog.Entities.Concrete.Comment", b =>
@@ -1282,12 +1268,6 @@ namespace ProgrammersBlog.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProgrammersBlog.Entities.Concrete.City", "City")
-                        .WithMany("Comments")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("ProgrammersBlog.Entities.Concrete.Place", "Place")
                         .WithMany("Comments")
                         .HasForeignKey("PlaceId")
@@ -1295,8 +1275,6 @@ namespace ProgrammersBlog.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Article");
-
-                    b.Navigation("City");
 
                     b.Navigation("Place");
                 });
@@ -1306,18 +1284,18 @@ namespace ProgrammersBlog.Data.Migrations
                     b.HasOne("ProgrammersBlog.Entities.Concrete.Category", "Category")
                         .WithMany("Places")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProgrammersBlog.Entities.Concrete.City", "City")
+                    b.HasOne("ProgrammersBlog.Entities.Concrete.User", "User")
                         .WithMany("Places")
-                        .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
 
-                    b.Navigation("City");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ProgrammersBlog.Entities.Concrete.RoleClaim", b =>
@@ -1383,27 +1361,16 @@ namespace ProgrammersBlog.Data.Migrations
                     b.Navigation("Places");
                 });
 
-            modelBuilder.Entity("ProgrammersBlog.Entities.Concrete.City", b =>
-                {
-                    b.Navigation("Articles");
-
-                    b.Navigation("Categories");
-
-                    b.Navigation("Comments");
-
-                    b.Navigation("Places");
-                });
-
             modelBuilder.Entity("ProgrammersBlog.Entities.Concrete.Place", b =>
                 {
-                    b.Navigation("Articles");
-
                     b.Navigation("Comments");
                 });
 
             modelBuilder.Entity("ProgrammersBlog.Entities.Concrete.User", b =>
                 {
                     b.Navigation("Articles");
+
+                    b.Navigation("Places");
                 });
 #pragma warning restore 612, 618
         }

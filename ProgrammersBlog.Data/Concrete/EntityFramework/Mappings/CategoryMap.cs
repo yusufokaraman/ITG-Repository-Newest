@@ -27,15 +27,15 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
             builder.Property(c => c.IsActive).IsRequired();
             builder.Property(c => c.IsDeleted).IsRequired();
             builder.Property(c => c.Note).HasMaxLength(500);
-            builder.HasOne<City>(c => c.City).WithMany(c => c.Categories).HasForeignKey(a => a.CityId).OnDelete(DeleteBehavior.NoAction);
+            //builder.HasOne<City>(c => c.City).WithMany(c => c.Categories).HasForeignKey(a => a.CityId).OnDelete(DeleteBehavior.NoAction);
             builder.ToTable("Categories");
 
             builder.HasData(
                  new Category
                  {
                      Id = 1,
-                     Name = "Yemek",
-                     CityId = 1,
+                     Name = " Adana Yemek",
+                   
                      Description = "Yemek yenilebilecek yerler ile ilgili oluşturulmuş kategoridir.",
                      IsActive = true,
                      IsDeleted = false,
@@ -50,8 +50,8 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
              new Category
              {
                  Id = 2,
-                 Name = "Tarihi Gezi",
-                 CityId = 1,
+                 Name = "Adana Tarihi Gezi",
+                 
                  Description = "Müze ve tarihsel yerler için oluşturulmuş kategoridir.",
                  IsActive = true,
                  IsDeleted = false,
@@ -66,8 +66,8 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
              new Category
              {
                  Id = 3,
-                 Name = "Doğa Gezisi",
-                 CityId = 1,
+                 Name = "Adana Doğa Gezisi",
+                
                  Description = "Doğal Parklar için oluşturulmuş kategoridir.",
                  IsActive = true,
                  IsDeleted = false,

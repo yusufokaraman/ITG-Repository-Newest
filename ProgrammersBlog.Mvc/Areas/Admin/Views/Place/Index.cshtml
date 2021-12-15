@@ -21,10 +21,12 @@
                     <tr>
                         <th>#</th>
                         <th>Kategori</th>
-                        <th>Şehir</th>
                         <th>Lokasyon Adı</th>
                         <th>Adres</th>
                         <th>Görsel</th>
+                        <th>Tarih</th>
+                        <th>Ziyaret Sayısı</th>
+                        <th>Yorum Sayısı</th>
                         <th>Aktif Mi?</th>
                         <th>Silinmiş Mi?</th>
                         <th>Oluşturulma Tarihi</th>
@@ -38,10 +40,12 @@
                     <tr>
                         <th>#</th>
                         <th>Kategori</th>
-                        <th>Şehir</th>
                         <th>Lokasyon Adı</th>
                         <th>Adres</th>
                         <th>Görsel</th>
+                        <th>Tarih</th>
+                        <th>Ziyaret Sayısı</th>
+                        <th>Yorum Sayısı</th>
                         <th>Aktif Mi?</th>
                         <th>Silinmiş Mi?</th>
                         <th>Oluşturulma Tarihi</th>
@@ -57,10 +61,12 @@
                         <tr>
                             <td>@place.Id</td>
                             <td>@place.Category.Name</td>
-                            <td>@place.City.Name</td>
                             <td>@place.Name</td>
                             <td>@place.Address</td>
                             <td><img src="~/img/@place.PlacePicture" class="my-image-table" /></td>
+                            <td>@place.Date.ToShortDateString()</td>
+                            <td>@place.ViewCount</td>
+                            <td>@place.CommentCount</td>
                             <td>@(place.IsActive ? "Evet" : "Hayır")</td>
                             <td>@(place.IsDeleted ? "Evet" : "Hayır")</td>
                             <td>@place.CreatedDate.ToShortDateString()</td>
@@ -72,14 +78,22 @@
                                 <button class="btn btn-danger btn-sm btn-delete" data-id="@place.Id"><span class="fas fa-minus-circle"></span></button>
                             </td>
                         </tr>
-}
+                    }
 
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-@section Scripts
+
+    @section Scripts
 {
-    <script src="~/AdminLTE/js/placeIndex.js" type="application/ecmascript"></script>
-}
+        <script src="~/AdminLTE/js/placeIndex.js" type="application/ecmascript"></script>
+        <script>
+        $(document).ready(function() {
+            $('#btnAdd').click(function() {
+                window.location.href = '@Url.Action("Add","Place")';
+            });
+        });
+        </script>
+ }

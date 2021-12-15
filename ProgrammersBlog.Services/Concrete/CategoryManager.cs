@@ -81,24 +81,7 @@ namespace ProgrammersBlog.Services.Concrete
                 Message = Messages.Category.NotFound(isPlural: true)
             });
         }
-        public async Task<IDataResult<CategoryListDto>> GetAllByCity(int cityId)
-        {
-            var result = await UnitOfWork.Cities.AnyAsync(c => c.Id == cityId);
-            if (result)
-            {
-                var categories = await UnitOfWork.Categories.GetAllAsync(a => a.CityId == cityId && !a.IsDeleted && a.IsActive, ar => ar.City);
-                if (categories.Count > -1)
-                {
-                    return new DataResult<CategoryListDto>(ResultStatus.Success, new CategoryListDto
-                    {
-                        Categories = categories,
-                        ResultStatus = ResultStatus.Success
-                    });
-                }
-                return new DataResult<CategoryListDto>(ResultStatus.Error, "Kategoriler bulunamadı.", null);
-            }
-            return new DataResult<CategoryListDto>(ResultStatus.Error, "Aradığınız şehir bulunamadı.", null);
-        }
+        
 
         public async Task<IDataResult<CategoryListDto>> GetAllByNonDeletedAsync()
         {

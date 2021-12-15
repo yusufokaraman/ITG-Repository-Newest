@@ -29,14 +29,14 @@ namespace ProgrammersBlog.Entities.Dtos
         [MinLength(5, ErrorMessage = "{0} alanı {1} karakterden kısa olmamalıdır.")]
         public string PlacePicture { get; set; }
 
-        [DisplayName("Şehir")]
-        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
-        public int CityName { get; set; }
-        public City City { get; set; }
 
         [DisplayName("Kategori")]
         [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
         public int CategoryName { get; set; }
         public Category Category { get; set; }
+
+        [DisplayName("Aktif Mi?")]
+        [Required(ErrorMessage = "{0} alanı boş geçilmemelidir.")]
+        public bool IsActive { get; set; }
     }
 }

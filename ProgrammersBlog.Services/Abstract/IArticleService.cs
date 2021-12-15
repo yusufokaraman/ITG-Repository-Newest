@@ -15,12 +15,12 @@ namespace ProgrammersBlog.Services.Abstract
         Task<IDataResult<ArticleDto>> GetAsync(int articleId);
         Task<IDataResult<ArticleDto>> GetByIdAsync(int articleId,bool includeCategory,bool includeComments, bool includeUser);
         Task<IDataResult<ArticleUpdateDto>> GetArticleUpdateDtoAsync(int articleId);
-        Task<IDataResult<ArticleListDto>> GetAllAsyncV2(int? categoryId, int? userId,int?cityId,int? placeId, bool? isActive, bool? isDeleted, int currentPage, int pageSize, OrderByGeneral orderBy,bool isAscending, bool includeCategory, bool includeComments, bool includeUser);
+        Task<IDataResult<ArticleListDto>> GetAllAsyncV2(int? categoryId, int? userId, bool? isActive, bool? isDeleted, int currentPage, int pageSize, OrderByGeneral orderBy,bool isAscending, bool includeCategory, bool includeComments, bool includeUser);
         Task<IDataResult<ArticleListDto>> GetAllAsync();
         Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAndActiveAsync();
-        Task<IDataResult<ArticleListDto>> GetAllByCity(int cityId);
-        Task<IDataResult<ArticleListDto>> GetAllByPlace(int placeId);
+        //Task<IDataResult<ArticleListDto>> GetAllByCity(int cityId);
+        //Task<IDataResult<ArticleListDto>> GetAllByPlace(int placeId);
         Task<IDataResult<ArticleListDto>> GetAllByCategoryAsync(int categoryId);
         Task<IDataResult<ArticleListDto>> GetAllByDeletedAsync();
         Task<IDataResult<ArticleListDto>> GetAllByViewCountAsync(bool isAscending, int? takeSize);

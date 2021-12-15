@@ -86,6 +86,43 @@ namespace ProgrammersBlog.Services.Utilities
                 return $"{articleTitle} başlıklı makale'nin okunma sayısı başarıyla arttırılmıştır.";
             }
         }
+        public static class Place
+        {
+            public static string NotFound(bool isPlural)
+            {
+                if (isPlural) return "Adresler bulunamadı.";
+                return "Böyle bir adres bulunamadı.";
+            }
+            public static string NotFoundById(int placeId)
+            {
+                return $"{placeId} adres koduna ait bir adres bulunamadı.";
+            }
+            public static string Add(string placeName)
+            {
+                return $"{placeName} başlıklı adres başarıyla eklenmiştir.";
+            }
+
+            public static string Update(string placeName)
+            {
+                return $"{placeName} başlıklı adres başarıyla güncellenmiştir.";
+            }
+            public static string Delete(string placeName)
+            {
+                return $"{placeName} başlıklı adres başarıyla silinmiştir.";
+            }
+            public static string HardDelete(string placeName)
+            {
+                return $"{placeName} başlıklı adres başarıyla veritabanından silinmiştir.";
+            }
+            public static string UndoDelete(string placeName)
+            {
+                return $"{placeName} başlıklı adres başarıyla arşivden geri getirilmiştir.";
+            }
+            public static string IncreaseViewCount(string placeName)
+            {
+                return $"{placeName} isimli adresin okunma sayısı başarıyla arttırılmıştır.";
+            }
+        }
         public static class Comment
         {
             public static string NotFound(bool isPlural)

@@ -12,12 +12,18 @@ namespace ProgrammersBlog.Entities.Concrete
         public string Name { get; set; }
         public string Address { get; set; }
         public string PlacePicture { get; set; }
-        public int CityId { get; set; }
-        public City City { get; set; }
+        public DateTime Date { get; set; }
+        public int ViewCount { get; set; } = 0;
+        public int CommentCount { get; set; } = 0;
+        public string SeoAuthor { get; set; }
+        public string SeoDescription { get; set; }
+        public string SeoTags { get; set; }
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public ICollection<Article> Articles { get; set; }
+
+        public int UserId { get; set; }
+        public User User { get; set; }
         public ICollection<Comment> Comments { get; set; }
     }
 }

@@ -13,8 +13,8 @@ namespace ProgrammersBlog.Entities.Dtos
     {
         public IList<Article> Articles { get; set; }
         public int? CategoryId { get; set; }
-        public int? CityId { get; set; }
-        public int? PlaceId { get; set; }
+
+
 
     }
 }

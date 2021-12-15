@@ -98,7 +98,7 @@ namespace ProgrammersBlog.Data.Concrete.EntityFramework.Mappings
                 Picture = "/userImages/defaultUser.png",
                 FirstName = "Admin",
                 LastName = "User",
-                About = "Editor User of ProgrammersBlog",
+                About = "Editor User of ITG",
                 TwitterLink = "https://twitter.com/editoruser",
                 InstagramLink = "https://instagram.com/editoruser",
                 YoutubeLink = "https://youtube.com/editoruser",
