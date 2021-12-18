@@ -49,6 +49,18 @@ namespace ProgrammersBlog.Mvc.Controllers
         {
             return View(_aboutUsPageInfo);
         }
+        [Route("harita")]
+        [HttpGet]
+        public IActionResult Map()
+        {
+            return View();
+        }
+        [Route("ComingSoon")]
+        [HttpGet]
+        public IActionResult ComingSoon()
+        {
+            return View();
+        }
         [Route("iletisim")]
         [HttpGet]
         public IActionResult Contact()

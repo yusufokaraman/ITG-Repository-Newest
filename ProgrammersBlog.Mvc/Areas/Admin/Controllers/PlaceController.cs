@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NToastNotify;
+using ProgrammersBlog.Entities.ComplexTypes;
 using ProgrammersBlog.Entities.Concrete;
 using ProgrammersBlog.Entities.Dtos;
 using ProgrammersBlog.Mvc.Areas.Admin.Models;
@@ -12,6 +13,8 @@ using ProgrammersBlog.Shared.Utilities.Results.ComplexTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
@@ -59,9 +62,9 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var placeAddDto = Mapper.Map<PlaceAddDto>(placeAddViewModel);
-                //var imageResult = await ImageHelper.Upload(articleAddViewModel.Title,
-                //    articleAddViewModel.ThumbnailFile, PictureType.Post);
-                //articleAddDto.Thumbnail = imageResult.Data.FullName;
+                //var imageResult = await ImageHelper.Upload(placeAddViewModel.Name,
+                //    placeAddViewModel.PlacePictureFile, PictureType.Post);
+                //placeAddDto.PlacePicture = imageResult.Data.FullName;
                 var result = await _placeService.AddAsync(placeAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
@@ -142,6 +145,73 @@ namespace ProgrammersBlog.Mvc.Areas.Admin.Controllers
             var categories = await _categoryService.GetAllByNonDeletedAndActiveAsync();
             placeUpdateViewModel.Categories = categories.Data.Categories;
             return View(placeUpdateViewModel);
+        }
+
+        [Authorize(Roles = "SuperAdmin,Place.Delete")]
+        [HttpPost]
+        public async Task<JsonResult> Delete(int placeId)
+        {
+            var result = await _placeService.DeleteAsync(placeId, LoggedInUser.UserName);
+            var placeResult = JsonSerializer.Serialize(result);
+            return Json(placeResult);
+        }
+        [Authorize(Roles = "SuperAdmin,Place.Read")]
+        [HttpGet]
+        public async Task<JsonResult> GetAllPlaces()
+        {
+            var places = await _placeService.GetAllByNonDeletedAndActiveAsync();
+            var placeResult = JsonSerializer.Serialize(places, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(placeResult);
+        }
+
+        [Authorize(Roles = "SuperAdmin,Place.Read")]
+        [HttpGet]
+        public async Task<IActionResult> DeletedPlaces()
+        {
+            var result = await _placeService.GetAllByDeletedAsync();
+            return View(result.Data);
+
+        }
+        [Authorize(Roles = "SuperAdmin,Place.Read")]
+        [HttpGet]
+        public async Task<JsonResult> GetAllDeletedPlaces()
+        {
+            var result = await _placeService.GetAllByDeletedAsync();
+            var places = JsonSerializer.Serialize(result, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(places);
+        }
+        [Authorize(Roles = "SuperAdmin,Place.Update")]
+        [HttpPost]
+        public async Task<JsonResult> UndoDelete(int placeId)
+        {
+            var result = await _placeService.UndoDeleteAsync(placeId, LoggedInUser.UserName);
+            var undoDeletePlaceResult = JsonSerializer.Serialize(result);
+            return Json(undoDeletePlaceResult);
+        }
+        [Authorize(Roles = "SuperAdmin,Place.Delete")]
+        [HttpPost]
+        public async Task<JsonResult> HardDelete(int placeId)
+        {
+            var result = await _placeService.HardDeleteAsync(placeId);
+            var hardDeletedPlaceResult = JsonSerializer.Serialize(result);
+            return Json(hardDeletedPlaceResult);
+        }
+        [Authorize(Roles = "SuperAdmin,Place.Read")]
+        [HttpGet]
+        public async Task<JsonResult> GetAllByViewCount(bool isAscending, int takeSize)
+        {
+            var result = await _placeService.GetAllByViewCountAsync(isAscending, takeSize);
+            var places = JsonSerializer.Serialize(result.Data.Places, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(places);
         }
 
 

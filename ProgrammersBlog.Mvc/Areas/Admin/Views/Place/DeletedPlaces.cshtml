@@ -1,0 +1,92 @@
+﻿@model ProgrammersBlog.Entities.Dtos.PlaceListDto
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Silinmiş Lokasyonlar";
+}
+<ol class="breadcrumb mb-3 mt-2">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Place" asp-action="DeletedPlaces">Silinmiş Lokasyonlar</a></li>
+</ol>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Silinmiş Lokasyonlar
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="deletedPlacesTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kategori</th>
+                        <th>Lokasyon Adı</th>
+                        <th>Adres</th>
+                        <th>Görsel</th>
+                        <th>Tarih</th>
+                        <th>Ziyaret Sayısı</th>
+                        <th>Yorum Sayısı</th>
+                        <th>Aktif Mi?</th>
+                        <th>Silinmiş Mi?</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Oluşturan Kullanıcı Adı</th>
+                        <th>Son Düzenlenme Tarihi</th>
+                        <th>Son Düzenleyen Kullanıcı Adı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>#</th>
+                        <th>Kategori</th>
+                        <th>Lokasyon Adı</th>
+                        <th>Adres</th>
+                        <th>Görsel</th>
+                        <th>Tarih</th>
+                        <th>Ziyaret Sayısı</th>
+                        <th>Yorum Sayısı</th>
+                        <th>Aktif Mi?</th>
+                        <th>Silinmiş Mi?</th>
+                        <th>Oluşturulma Tarihi</th>
+                        <th>Oluşturan Kullanıcı Adı</th>
+                        <th>Son Düzenlenme Tarihi</th>
+                        <th>Son Düzenleyen Kullanıcı Adı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var place in Model.Places)
+                    {
+                        <tr name="@place.Id">
+                            <td>@place.Id</td>
+                            <td>@place.Category.Name</td>
+                            <td>@place.Name</td>
+                            <td><img src="~/img/@place.PlacePicture" class="my-image-table" /></td>
+                            <td>@place.Date.ToShortDateString()</td>
+                            <td>@place.ViewCount</td>
+                            <td>@place.CommentCount</td>
+                            <td>@(place.IsActive ? "Evet" : "Hayır")</td>
+                            <td>@(place.IsDeleted ? "Evet" : "Hayır")</td>
+                            <td>@place.CreatedDate.ToShortDateString()</td>
+                            <td>@place.CreatedByName</td>
+                            <td>@place.ModifiedDate.ToShortDateString()</td>
+                            <td>@place.ModifiedByName</td>
+                            <td>
+                                <a class="btn btn-warning btn-sm btn-undo" data-id="@place.Id"><span class="fas fa-undo"></span></a>
+                                <button class="btn btn-danger btn-sm btn-delete" data-id="@place.Id"><span class="fas fa-minus-circle"></span></button>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/AdminLTE/js/deletedArticles.js" type="application/ecmascript"></script>
+}
+@section Styles
+{
+
+}

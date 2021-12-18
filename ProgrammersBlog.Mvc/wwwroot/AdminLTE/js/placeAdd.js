@@ -46,13 +46,7 @@
     });
 
     // Select2
-    // Select2
-
-    $('#cityList').select2({
-        theme: 'bootstrap4',
-        placeholder: "Lütfen bir şehir seçiniz...",
-        allowClear: true
-    });
+    
 
     // Select2
 
