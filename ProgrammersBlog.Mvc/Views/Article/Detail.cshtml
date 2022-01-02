@@ -33,6 +33,8 @@
     
     <p class="text-center">Okunma Sayısı: <span class="badge badge-info">@Model.ArticleDto.Article.ViewCount</span> Yorum Sayısı: <span class="badge badge-warning">@Model.ArticleDto.Article.CommentCount</span></p>
 
+    
+
     <!-- Comments Form -->
     <partial name="~/Views/Comment/_CommentAddPartial.cshtml" model="new CommentAddDto{ArticleId = Model.ArticleDto.Article.Id}" />
     
@@ -48,7 +50,15 @@
             </div>}
     </div>
 </div>
+
+
 <partial name="_ArticleDetailRightSideBarPartial" model="@Model.ArticleDetailRightSideBarViewModel"/>
+
+<div class="col-md-12 mt-2">
+
+    <iframe src="https://my.atlistmaps.com/map/886d77ba-11f6-4c2a-8e88-5aebc24c1b89?share=true" allow="geolocation" width="100%" height="400px" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</div>
+
 @section Scripts{ 
     <script src="~/BlogHome/js/articleDetail.js" type="text/ecmascript"></script>
 }

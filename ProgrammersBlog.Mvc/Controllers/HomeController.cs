@@ -55,6 +55,12 @@ namespace ProgrammersBlog.Mvc.Controllers
         {
             return View();
         }
+        [Route("rota")]
+        [HttpGet]
+        public IActionResult Rota()
+        {
+            return View();
+        }
         [Route("ComingSoon")]
         [HttpGet]
         public IActionResult ComingSoon()

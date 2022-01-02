@@ -56,7 +56,7 @@ namespace ProgrammersBlog.Mvc.Helpers.Concrete
             DateTime dateTime = DateTime.Now;
             /*
             // Parametre ile gelen değerler kullanılarak yeni bir resim adı oluşturulur.
-            // Örn: AlperTunga_587_5_38_12_3_10_2020.png
+            // Örn: Yusuf_587_5_38_12_3_10_2020.png
             */
             string newFileName = $"{name}_{dateTime.FullDateAndTimeStringWithUnderscore()}{fileExtension}";
 

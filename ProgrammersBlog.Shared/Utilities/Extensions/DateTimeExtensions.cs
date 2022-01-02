@@ -14,7 +14,7 @@ namespace ProgrammersBlog.Shared.Utilities.Extensions
                 $"{dateTime.Millisecond}_{dateTime.Second}_{dateTime.Minute}_{dateTime.Hour}_{dateTime.Day}_{dateTime.Month}_{dateTime.Year}";
 
             /*
-             * AlperTunga_587_5_38_12_3_10_2020_userAlperTungaResmi.png
+             * Yusuf_587_5_38_12_3_10_2020_useryusuf.png
              * JamesBond_601_5_38_12_3_10_2020.png
              *
              */
